@@ -11,14 +11,15 @@ db = SqliteDb(db_file="memories/insults.db")
 with open("/workspaces/insults/agents/config.yaml","r") as f:
     CONFIG = yaml.safe_load(f)
 
-agent = Agent(
+agent_a = Agent(
     name="Agent A",
     role="The Insulter",
-    model=Gemini(id="gemini-2.5-flash",temperature=0.91,api_key=os.getenv("GOOGLE_API_KEY"),thinking_budget=2048),
+    model=Gemini(id="gemini-2.5-flash",temperature=0.91,api_key=os.getenv("GOOGLE_API_KEY")),
     db=db,
     enable_user_memories=True,
     instructions=CONFIG['instructions_for_a'],
+    add_name_to_context=True
 
 )
 
-agent.print_response("do you have something to say about agent B?")
+#agent_.print_response("do you have something to say about agent B?")
