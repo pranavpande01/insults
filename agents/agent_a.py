@@ -14,7 +14,7 @@ with open("/workspaces/insults/agents/config.yaml","r") as f:
 agent = Agent(
     name="Agent A",
     role="The Insulter",
-    model=Gemini(id="gemini-2.5-flash",temperature=0.91,api_key=os.getenv("GOOGLE_API_KEY")),
+    model=Gemini(id="gemini-2.5-flash",temperature=0.91,api_key=os.getenv("GOOGLE_API_KEY"),thinking_budget=2048),
     db=db,
     enable_user_memories=True,
     instructions=CONFIG['instructions_for_a'],
